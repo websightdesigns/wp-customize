@@ -1,0 +1,30 @@
+# gitignore
+
+# Mac OS
+.DS_Store
+.DS_Store?
+.AppleDouble
+.LSOverride
+._*
+.Spotlight-V100
+.Trashes
+__MACOSX
+Thumbs.db
+ehthumbs.db
+
+# Linux OS
+.swp.*
+
+# Sublime Text
+*.sublime-project
+*.sublime-workspace
+sftp-config.json
+sftp-config-*.json
+
+# Netbeans
+nbproject
+
+# prepros files
+prepros.cfg
+
+# EOF
