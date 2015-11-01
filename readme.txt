@@ -2,9 +2,9 @@
 Contributors: websightdesigns
 Donate link: http://www.websightdesigns.com/
 Tags: admin, customize, login logo, admin footer, custom login, login page, custom page, footer
-Requires at least: 3.0.1
-Tested up to: 4.2.2
-Stable tag: 0.9
+Requires at least: 3.1
+Tested up to: 4.3.1
+Stable tag: 1.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -53,6 +53,12 @@ Yes, and there were no known issues that we found with it.
 
 == Changelog ==
 
+= 1.0 =
+* Custom page template for the login page
+* Redirect to custom page template from wp-login.php
+* Option to set page title on custom login page template
+* Option to set the URL for the logo image link on the login page
+
 = 0.9 =
 * Only change the default logo when a URL to an alternative logo image is entered.
 * Added more colors to the color picker pallette.
@@ -63,7 +69,7 @@ Yes, and there were no known issues that we found with it.
 * Option to set a custom login error message. If no error message is entered, sets it to "Incorrect login details. Please try again.".
 
 = 0.8 =
-* Fixes error where wsd_admin_loginstyles() were not parsing correctly due to incorrect php shorttag used for opening php tag.
+* Fixes SVN issues.
 
 = 0.7 =
 * Added a slightly modified version of Spectrum color picker version 1.7.0 (forked from from https://bgrins.github.io/spectrum/)
