@@ -1,13 +1,7 @@
 ## WP Customize
 
-Contributors: websightdesigns
-Donate link: http://www.websightdesigns.com/
-Tags: admin, customize, login logo, admin footer, custom login, login page, custom page, footer
-Requires at least: 3.1
-Tested up to: 4.3.1
-Stable tag: 1.0
-License: GPLv2 or later
-License URI: http://www.gnu.org/licenses/gpl-2.0.html
+by @websightdesigns
+http://www.websightdesigns.com/
 
 This plugin allows you to set up a custom login page and set a custom footer message in the WordPress Admin.
 
@@ -23,7 +17,9 @@ This plugin allows you to set up a custom login page, including your logo. It al
 
 `Please be sure and rate this plugin! Thanks!`
 
-###Installation
+For support please raise an issue at https://github.com/websightdesigns/wp-customize/issues
+
+### Installation
 
 1. Upload the `wp-customize` folder to the `/wp-content/plugins/` directory
 2. Activate the plugin through the 'Plugins' menu in WordPress
@@ -31,36 +27,36 @@ This plugin allows you to set up a custom login page, including your logo. It al
 
 ### Frequently Asked Questions
 
-= Has this plugin been tested on versions of WordPress before version 3.5? =
+Has this plugin been tested on versions of WordPress before version 3.5?
 
 At this time, no it has not. It's a pretty simple plugin so there shouldn't be any issues, but if you do come across anything just contact us and we will take a look.
 
-= Has this plugin been tested on WordPress version 4.0? =
+Has this plugin been tested on WordPress version 4.0?
 
 Yes, and there were no known issues that we found with it. It's a pretty simple plugin but if you should come across a problem just let us know.
 
-= Has this plugin been tested on WordPress version 4.1? =
+Has this plugin been tested on WordPress version 4.1?
 
 Yes, and there were no known issues that we found with it.
 
-= Has this plugin been tested on WordPress version 4.2? =
+Has this plugin been tested on WordPress version 4.2?
 
 Yes, and there were no known issues that we found with it.
 
-== Screenshots ==
+### Screenshots
 
 1. A screenshot of the Settings page
 2. A screenshot of a customized login page
 
-== Changelog ==
+### Changelog
 
-= 1.0 =
+#### 1.0
 * Custom page template for the login page
 * Redirect to custom page template from wp-login.php
 * Option to set page title on custom login page template
 * Option to set the URL for the logo image link on the login page
 
-= 0.9 =
+#### 0.9
 * Only change the default logo when a URL to an alternative logo image is entered.
 * Added more colors to the color picker pallette.
 * Option to hide the "Register" and "Lost your password?" links from the WP-Admin login form.
@@ -69,33 +65,36 @@ Yes, and there were no known issues that we found with it.
 * Option to remove the "login shake" from the login form.
 * Option to set a custom login error message. If no error message is entered, sets it to "Incorrect login details. Please try again.".
 
-= 0.8 =
+#### 0.8
 * Fixes SVN issues.
 
-= 0.7 =
+#### 0.7
 * Added a slightly modified version of Spectrum color picker version 1.7.0 (forked from from https://bgrins.github.io/spectrum/)
 
-= 0.6 =
+#### 0.6
 * Removed Spectrum color picker
 
-= 0.5 =
+#### 0.5
 * Added Spectrum color picker version 1.7.0 from https://bgrins.github.io/spectrum/
 
-= 0.4 =
+#### 0.4
 * Added a field to enter custom CSS for the login page.
 * Modified the label text and text input sizes.
 
-= 0.3 =
+#### 0.3
 * Modified the markup for the sub-section headers in the Customize page found under the Settings section of the WordPress admin to make it more obvious there are different sections.
 * Tested the plugin with WordPress version 4.0 and found no problems.
 
-= 0.2 =
+#### 0.2
 * This version adds the option to set the width of the logo area.
 
-= 0.1 =
+#### 0.1
 * This is the first version of this plugin. There will very likely be enhancements to it as time goes on, so feel free to let us know how we could improve it!
 
 ### Upgrade Notice
 
-= 0.5 =
+1.0
+This version adds a new custom page template and various other new features. See "Changelog" section for full details.
+
+0.5
 This version adds color picker widgets to easily select RGB color codes.
