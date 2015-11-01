@@ -19,6 +19,13 @@ This plugin allows you to set up a custom login page, including your logo. It al
 
 For support please raise an issue at https://github.com/websightdesigns/wp-customize/issues
 
+### To Do
+
+* Set up a Register page template
+* Set a Lost Password page template
+* Add the Lost Password and Back/Register links to the Login page template
+* Set up ACE editors for the code blocks
+
 ### Installation
 
 1. Upload the `wp-customize` folder to the `/wp-content/plugins/` directory

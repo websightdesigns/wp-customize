@@ -6,7 +6,7 @@ jQuery(document).ready(function($){
 	}, 5000);
 
     // spectrum color picker
-    $("#wsd_admin_bgcolor, #wsd_admin_linkcolor, #wsd_admin_linkhovercolor").spectrum({
+    $("#wpcustomize_admin_bgcolor, #wpcustomize_admin_linkcolor, #wpcustomize_admin_linkhovercolor").spectrum({
         showPalette: true,
         showInput: true,
         preferredFormat: "hex3",
@@ -22,5 +22,29 @@ jQuery(document).ready(function($){
             ["#b6b6b6","#4c99ef"]
         ]
     });
+
+    // media library upload file input - logo image
+    $('#wpcustomize_admin_logo_image_url_button').click(function() {
+        formfield = $('#wpcustomize_admin_logo_image_url').attr('name');
+        tb_show('', 'media-upload.php?type=image&amp;TB_iframe=true');
+        return false;
+    });
+    window.send_to_editor = function(html) {
+        imgurl = $('img',html).attr('src');
+        $('#wpcustomize_admin_logo_image_url').val(imgurl);
+        tb_remove();
+    }
+
+    // media library upload file input - page background
+    $('#wpcustomize_admin_login_background_url_button').click(function() {
+        formfield = $('#wpcustomize_admin_login_background_url').attr('name');
+        tb_show('', 'media-upload.php?type=image&amp;TB_iframe=true');
+        return false;
+    });
+    window.send_to_editor = function(html) {
+        imgurl = $('img',html).attr('src');
+        $('#wpcustomize_admin_login_background_url').val(imgurl);
+        tb_remove();
+    }
 
 });
