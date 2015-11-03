@@ -4,6 +4,14 @@
 Template Name: Log In
 */
 
+if ( ! defined( 'ABSPATH' ) ) {
+    die();
+}
+
+if ( version_compare( $GLOBALS['wp_version'], '3.1', '<' ) ) {
+    return;
+}
+
 if ( is_user_logged_in() ) {
     header('Location: /wp-admin/');
 } else {

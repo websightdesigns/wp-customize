@@ -4,7 +4,7 @@ Donate link: http://www.websightdesigns.com/
 Tags: admin, customize, login logo, admin footer, custom login, login page, custom page, footer
 Requires at least: 3.1
 Tested up to: 4.3.1
-Stable tag: 1.0
+Stable tag: 1.0.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -52,6 +52,9 @@ Yes, and there were no known issues that we found with it.
 2. A screenshot of a customized login page
 
 == Changelog ==
+
+= 1.0.1 =
+* Fix upload buttons styles in responsive mode
 
 = 1.0 =
 * Custom page template for the login page

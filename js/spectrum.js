@@ -8,11 +8,9 @@
 
     if (typeof define === 'function' && define.amd) { // AMD
         define(['jquery'], factory);
-    }
-    else if (typeof exports == "object" && typeof module == "object") { // CommonJS
+    } else if (typeof exports == "object" && typeof module == "object") { // CommonJS
         module.exports = factory;
-    }
-    else { // Browser
+    } else { // Browser
         factory(jQuery);
     }
 })(function($, undefined) {

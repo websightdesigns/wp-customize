@@ -21,10 +21,9 @@ For support please raise an issue at https://github.com/websightdesigns/wp-custo
 
 ### To Do
 
+* Add the Lost Password and Back/Register links to the Login page template
 * Set up a Register page template
 * Set a Lost Password page template
-* Add the Lost Password and Back/Register links to the Login page template
-* Set up ACE editors for the code blocks
 
 ### Installation
 
@@ -56,6 +55,9 @@ Yes, and there were no known issues that we found with it.
 2. A screenshot of a customized login page
 
 ### Changelog
+
+#### 1.0.1
+* Fix upload buttons styles in responsive mode
 
 #### 1.0
 * Custom page template for the login page
