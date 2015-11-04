@@ -23,21 +23,25 @@ jQuery(document).ready(function($){
         ]
     });
 
-    // media library upload file input - logo image
-    $('.upload_button').click(function() {
-        formfield = $(this).parent().find('input[type="text"]').attr('name');
-        tb_show('', 'media-upload.php?type=image&amp;TB_iframe=true');
-        return false;
+    // media library upload file inputs
+    $('.upload_button').click(function(e) {
+        e.preventDefault();
+        var btnClicked = $( this );
+        var custom_uploader = wp.media({
+            title: 'Select a File',
+            button: {
+                text: 'Upload Image'
+            },
+            multiple: false  // Set this to true to allow multiple files to be selected
+        })
+        .on('select', function() {
+            var attachment = custom_uploader.state().get('selection').first().toJSON();
+            $( btnClicked ).parent().children( '.uploadfile' ).val( attachment.url );
+        })
+        .open();
     });
-    window.send_to_editor = function(html) {
-        imgurl = $('img',html).attr('src');
-        $(this).parent().find('input[type="text"]').val(imgurl);
-        tb_remove();
-    }
 
-    /**
-     * Ace Editor
-     */
+    // ace editor
     if ( typeof( ace ) !== 'undefinded' ) {
 
         /**

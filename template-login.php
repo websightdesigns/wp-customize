@@ -62,6 +62,16 @@ if ( is_user_logged_in() ) {
                 background-size: ' . html_entity_decode(get_option('wpcustomize_admin_login_background_size')) . ';
             }';
         }
+        if( get_option('wpcustomize_hide_register_forgot_links') ) {
+            echo 'p#nav {
+                display: none;
+            }';
+        }
+        if( get_option('wpcustomize_hide_back_link') ) {
+            echo 'p#backtoblog {
+                display: none;
+            }';
+        }
         if( get_option('wpcustomize_admin_loginstyles') ) {
             echo html_entity_decode(get_option('wpcustomize_admin_loginstyles'));
         }
@@ -82,8 +92,8 @@ if ( is_user_logged_in() ) {
                 'remember'       => true,
                 'redirect'       => site_url('login') . '/',
                 'form_id'        => 'loginform',
-                'id_username'    => 'user_login',
-                'id_password'    => 'user_pass',
+                'id_username'    => ( get_option('field_name_username') ? html_entity_decode(get_option('field_name_username')) : 'user_login' ),
+                'id_password'    => ( get_option('field_name_password') ? html_entity_decode(get_option('field_name_password')) : 'user_pass' ),
                 'id_remember'    => 'rememberme',
                 'id_submit'      => 'wp-submit',
                 'label_username' => __( 'Username' ),
@@ -95,6 +105,10 @@ if ( is_user_logged_in() ) {
             );
             wp_login_form();
         ?>
+        <p id="nav">
+            <a href="<?php echo esc_url( home_url( '/' ) ); ?>wp-login.php?action=register">Register</a> | <a href="<?php echo esc_url( home_url( '/' ) ); ?>wp-login.php?action=lostpassword" title="Password Lost and Found">Lost your password?</a>
+        </p>
+        <p id="backtoblog"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php esc_attr_e( 'Are you lost?' ); ?>"><?php printf( __( '&larr; Back to %s' ), get_bloginfo( 'title', 'display' ) ); ?></a></p>
     </div>
     <div class="clear"></div>
 <?php

@@ -1,14 +1,14 @@
 <?php
 /**
  * @package WP_Customize
- * @version 1.0.1
+ * @version 1.0.2
  */
 
 /*
 Plugin Name: WP-Customize
 Description: This plugin allows you to customize the WordPress login page and set your own footer for the WordPress Admin.
 Author: WebSight Designs
-Version: 1.0.1
+Version: 1.0.2
 Author URI: http://websightdesigns.com/
 License: GPL2
 */
@@ -30,8 +30,6 @@ along with this program; if not, write to the Free Software
 Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 */
 
-
-
 if ( ! defined( 'ABSPATH' ) ) {
 	die();
 }
@@ -40,15 +38,27 @@ if ( version_compare( $GLOBALS['wp_version'], '3.1', '<' ) ) {
 	return;
 }
 
-
+/**
+ * ************************************************************
+ *                WP ADMIN - INIT/UNINIT PLUGIN
+ * ************************************************************
+ */
 
 require_once('plugin-init.php');
 
-
+/**
+ * ************************************************************
+ *            WP ADMIN - CREATE LOGIN PAGE TEMPLATE
+ * ************************************************************
+ */
 
 require_once('page-template.php');
 
-
+/**
+ * ************************************************************
+ *                 WP ADMIN - SCRIPTS AND STYLES
+ * ************************************************************
+ */
 
 // enqueue javascript for admin pages
 function wpcustomize_admin_scripts() {
@@ -63,11 +73,27 @@ function wpcustomize_admin_scripts() {
 }
 add_action( 'admin_enqueue_scripts', 'wpcustomize_admin_scripts' );
 
+/**
+ * Load media files needed for Uploader
+ */
+function load_wp_media_files() {
+  wp_enqueue_media();
+}
+add_action( 'admin_enqueue_scripts', 'load_wp_media_files' );
 
+/**
+ * ************************************************************
+ *                    WP ADMIN - SETTINGS PAGE
+ * ************************************************************
+ */
 
 require_once('settings-page.php');
 
-
+/**
+ * ************************************************************
+ *                          WP ADMIN
+ * ************************************************************
+ */
 
 /**
  * Add custom CSS to the admin document head
@@ -97,6 +123,14 @@ function wpcustomize_admin_styles() {
 	echo '</style>';
 }
 add_action('admin_head', 'wpcustomize_admin_styles');
+
+
+
+/**
+ * ************************************************************
+ *                       ADMIN LOGIN
+ * ************************************************************
+ */
 
 /**
  * Add a custom logo to the WordPress Admin login page header
@@ -230,17 +264,21 @@ function wpcustomize_login_header_title() {
 add_filter('login_headertitle', 'wpcustomize_login_header_title');
 
 /**
- * Set a new footer in the WordPress Admin
+ * Set a custom logo for the default login page
  */
-function wpcustomize_remove_footer_admin () {
-	$wpcustomize_footer_default_value = 'Thank you for creating with <a href="http://wordpress.org/">WordPress</a>.';
-	if(get_option('wpcustomize_admin_footer_contents') == "") {
-		echo $wpcustomize_footer_default_value;
-	} else {
-		echo html_entity_decode(get_option('wpcustomize_admin_footer_contents', htmlentities($wpcustomize_footer_default_value)));
+if( get_option('wpcustomize_admin_logo_image_url') ) {
+	function wpcustomize_login_logo() {
+		echo '<style type="text/css">
+			.login h1 a {
+				background-image: url(' . html_entity_decode(get_option('wpcustomize_admin_logo_image_url')) . ');
+				background-size: ' . html_entity_decode(get_option('wpcustomize_admin_logo_width')) . 'px ' . html_entity_decode(get_option('wpcustomize_admin_logo_height')) . 'px !important;
+				height: ' . html_entity_decode(get_option('wpcustomize_admin_logo_area_height')) . 'px !important;
+				width: ' . html_entity_decode(get_option('wpcustomize_admin_logo_area_width')) . 'px !important;
+			}
+		</style>';
 	}
+	add_action( 'login_enqueue_scripts', 'wpcustomize_login_logo' );
 }
-add_filter('admin_footer_text', 'wpcustomize_remove_footer_admin');
 
 /**
  * Redirect user after successful login
@@ -267,7 +305,13 @@ add_filter( 'login_redirect', 'wpcustomize_login_redirect', 10, 3 );
  */
 function wpcustomize_login(){
 	global $pagenow;
-	if ( ( 'wp-login.php' == $pagenow ) && $_SERVER['REQUEST_METHOD'] != 'POST' && ( !is_user_logged_in() ) ) {
+	if (
+		( 'wp-login.php' == $pagenow )
+		&& $_SERVER['REQUEST_METHOD'] != 'POST'
+		&& $_GET['action'] != 'register'
+		&& $_GET['action'] != 'lostpassword'
+		&& ( !is_user_logged_in() )
+	) {
 		wp_redirect('/login/');
 		exit();
 	} elseif( ( 'wp-login.php' == $pagenow ) && $_SERVER['REQUEST_METHOD'] == 'POST' && ( !is_user_logged_in() ) ) {
@@ -276,11 +320,6 @@ function wpcustomize_login(){
 	}
 }
 add_action('init','wpcustomize_login');
-
-/**
- * Set a custom WordPress Admin login page header title
- */
-// add_filter('login_headertitle', create_function(false,"return 'URL Title';"));
 
 /**
  * Empty login credentials
@@ -304,3 +343,22 @@ function wpcustomize_login_failed( $username ) {
 	exit;
 }
 add_action( 'wp_login_failed', 'wpcustomize_login_failed' );
+
+/**
+ * ************************************************************
+ *                       ADMIN FOOTER
+ * ************************************************************
+ */
+
+/**
+ * Set a new footer in the WordPress Admin
+ */
+function wpcustomize_remove_footer_admin () {
+	$wpcustomize_footer_default_value = 'Thank you for creating with <a href="http://wordpress.org/">WordPress</a>.';
+	if(get_option('wpcustomize_admin_footer_contents') == "") {
+		echo $wpcustomize_footer_default_value;
+	} else {
+		echo html_entity_decode(get_option('wpcustomize_admin_footer_contents', htmlentities($wpcustomize_footer_default_value)));
+	}
+}
+add_filter('admin_footer_text', 'wpcustomize_remove_footer_admin');

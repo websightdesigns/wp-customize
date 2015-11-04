@@ -17,13 +17,10 @@ This plugin allows you to set up a custom login page, including your logo. It al
 
 `Please be sure and rate this plugin! Thanks!`
 
+The WordPress Codex has a great write-up on Styling Your Login:
+https://codex.wordpress.org/Customizing_the_Login_Form#Styling_Your_Login
+
 For support please raise an issue at https://github.com/websightdesigns/wp-customize/issues
-
-### To Do
-
-* Add the Lost Password and Back/Register links to the Login page template
-* Set up a Register page template
-* Set a Lost Password page template
 
 ### Installation
 
@@ -32,10 +29,6 @@ For support please raise an issue at https://github.com/websightdesigns/wp-custo
 3. Fill out the settings under `SETTINGS > CUSTOMIZE` in the WordPress Admin
 
 ### Frequently Asked Questions
-
-Has this plugin been tested on versions of WordPress before version 3.5?
-
-At this time, no it has not. It's a pretty simple plugin so there shouldn't be any issues, but if you do come across anything just contact us and we will take a look.
 
 Has this plugin been tested on WordPress version 4.0?
 
@@ -49,12 +42,22 @@ Has this plugin been tested on WordPress version 4.2?
 
 Yes, and there were no known issues that we found with it.
 
+Has this plugin been tested on WordPress version 4.3?
+
+Yes, and there were no known issues that we found with it.
+
 ### Screenshots
 
 1. A screenshot of the Settings page
 2. A screenshot of a customized login page
 
 ### Changelog
+
+#### 1.0.2
+* Add ability to show/hide the Register, Lost Password and Back links.
+* Allow register and lostpassword links through.
+* Show the custom logo on the default WordPress login page.
+* Fixes the media upload buttons and improves their functionality.
 
 #### 1.0.1
 * Fix upload buttons styles in responsive mode

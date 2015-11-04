@@ -79,6 +79,8 @@ function wp_customize_install() {
 <IfModule mod_rewrite.c>
 RewriteEngine on
 RewriteCond %{REQUEST_METHOD} POST
+RewriteCond %{QUERY_STRING} !(?:^)action=register
+RewriteCond %{QUERY_STRING} !(?:^)action=lostpassword
 RewriteCond %{HTTP_REFERER} !^http://(.*)?$servername [NC]
 RewriteCond %{REQUEST_URI} ^(.*)?wp-login\.php(.*)$ [OR]
 RewriteCond %{REQUEST_URI} ^(.*)?wp-admin$
