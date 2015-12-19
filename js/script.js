@@ -127,4 +127,9 @@ jQuery(document).ready(function($){
 
     } // ace
 
+    // chosen select boxes
+    $(".selectbox").chosen({
+        disable_search: true
+    });
+
 }); // jquery readydoc

@@ -4,15 +4,9 @@ if ( ! defined( 'ABSPATH' ) ) {
     die();
 }
 
-if ( version_compare( $GLOBALS['wp_version'], '3.1', '<' ) ) {
+if ( version_compare( $GLOBALS['wp_version'], '3.5', '<' ) ) {
     return;
 }
-
-/* Runs when plugin is activated */
-register_activation_hook(__FILE__,'wp_customize_install');
-
-/* Runs on plugin deactivation*/
-register_deactivation_hook( __FILE__, 'wp_customize_remove' );
 
 function wp_customize_install() {
 
@@ -75,6 +69,9 @@ function wp_customize_install() {
     /**
      * Configure apache rewrite rules
      */
+    $site_url_parts = explode('wp-admin/', $_SERVER['REQUEST_URI']);
+    $site_path = $site_url_parts[0] . 'login/';
+    $rel_site_path = substr($site_url_parts[0], 1);
     $rewrite_rules = <<< EOD
 <IfModule mod_rewrite.c>
 RewriteEngine on
@@ -82,9 +79,9 @@ RewriteCond %{REQUEST_METHOD} POST
 RewriteCond %{QUERY_STRING} !(?:^)action=register
 RewriteCond %{QUERY_STRING} !(?:^)action=lostpassword
 RewriteCond %{HTTP_REFERER} !^http://(.*)?$servername [NC]
-RewriteCond %{REQUEST_URI} ^(.*)?wp-login\.php(.*)$ [OR]
-RewriteCond %{REQUEST_URI} ^(.*)?wp-admin$
-RewriteRule ^(.*)$ /login/ [R=301,L]
+RewriteCond %{REQUEST_URI} ^(.*)?{$rel_site_path}wp-login\.php(.*)$ [OR]
+RewriteCond %{REQUEST_URI} ^(.*)?{$rel_site_path}wp-admin$
+RewriteRule ^(.*)$ $site_path [R=301,L]
 </IfModule>
 EOD;
 

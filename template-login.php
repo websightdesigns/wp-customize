@@ -8,7 +8,7 @@ if ( ! defined( 'ABSPATH' ) ) {
     die();
 }
 
-if ( version_compare( $GLOBALS['wp_version'], '3.1', '<' ) ) {
+if ( version_compare( $GLOBALS['wp_version'], '3.5', '<' ) ) {
     return;
 }
 
@@ -37,7 +37,8 @@ if ( is_user_logged_in() ) {
     <?php
         echo '<style type="text/css">';
         if( get_option('wpcustomize_admin_logo_image_url') ) {
-            echo '#login h1 a {
+            echo '
+            #login h1 a {
                 background-image:url(' . html_entity_decode(get_option('wpcustomize_admin_logo_image_url')) . ') !important;
                 background-size: ' . html_entity_decode(get_option('wpcustomize_admin_logo_width')) . 'px ' . html_entity_decode(get_option('wpcustomize_admin_logo_height')) . 'px !important;
                 height: ' . html_entity_decode(get_option('wpcustomize_admin_logo_area_height')) . 'px !important;
@@ -45,16 +46,20 @@ if ( is_user_logged_in() ) {
             }';
         }
         if( get_option('wpcustomize_admin_bgcolor', '000') ) {
-            echo 'body { background-color:' . html_entity_decode(get_option('wpcustomize_admin_bgcolor', '000')) . ' !important; }';
+            echo '
+            body { background-color:' . html_entity_decode(get_option('wpcustomize_admin_bgcolor', '000')) . ' !important; }';
         }
         if( get_option('wpcustomize_admin_linkcolor', 'fff') ) {
-            echo '#login #nav a, #login #backtoblog a { color:' . html_entity_decode(get_option('wpcustomize_admin_linkcolor', 'fff')) . ' !important; text-shadow: none !important; }';
+            echo '
+            #login #nav a, #login #backtoblog a { color:' . html_entity_decode(get_option('wpcustomize_admin_linkcolor', 'fff')) . ' !important; text-shadow: none !important; }';
         }
         if( get_option('wpcustomize_admin_linkhovercolor', 'cfcfcf') ) {
-            echo '#login #nav a:hover, #login #backtoblog a:hover { color: ' . html_entity_decode(get_option('wpcustomize_admin_linkhovercolor', 'cfcfcf')) . ' !important; text-shadow: none !important; }';
+            echo '
+            #login #nav a:hover, #login #backtoblog a:hover { color: ' . html_entity_decode(get_option('wpcustomize_admin_linkhovercolor', 'cfcfcf')) . ' !important; text-shadow: none !important; }';
         }
         if( get_option('wpcustomize_admin_login_background_url') ) {
-            echo 'body {
+            echo '
+            body {
                 background-image: url(' . html_entity_decode(get_option('wpcustomize_admin_login_background_url')) . ') !important;
                 background-repeat: ' . html_entity_decode(get_option('wpcustomize_admin_login_background_repeat')) . ';
                 background-position: ' . html_entity_decode(get_option('wpcustomize_admin_login_background_position')) . ';
@@ -63,16 +68,20 @@ if ( is_user_logged_in() ) {
             }';
         }
         if( get_option('wpcustomize_hide_register_forgot_links') ) {
-            echo 'p#nav {
+            echo '
+            p#nav {
                 display: none;
             }';
         }
         if( get_option('wpcustomize_hide_back_link') ) {
-            echo 'p#backtoblog {
+            echo '
+            p#backtoblog {
                 display: none;
             }';
         }
         if( get_option('wpcustomize_admin_loginstyles') ) {
+            echo '
+            ';
             echo html_entity_decode(get_option('wpcustomize_admin_loginstyles'));
         }
         echo '</style>';

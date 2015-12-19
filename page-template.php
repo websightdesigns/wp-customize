@@ -4,7 +4,7 @@ if ( ! defined( 'ABSPATH' ) ) {
     die();
 }
 
-if ( version_compare( $GLOBALS['wp_version'], '3.1', '<' ) ) {
+if ( version_compare( $GLOBALS['wp_version'], '3.5', '<' ) ) {
     return;
 }
 

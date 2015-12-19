@@ -4,7 +4,7 @@ if ( ! defined( 'ABSPATH' ) ) {
     die();
 }
 
-if ( version_compare( $GLOBALS['wp_version'], '3.1', '<' ) ) {
+if ( version_compare( $GLOBALS['wp_version'], '3.5', '<' ) ) {
     return;
 }
 
@@ -149,7 +149,7 @@ function wpcustomize_settings_page() {
             <tr valign="top">
                 <th scope="row"><?php _e("Background Repeat:", 'wp-customize-menu'); ?> </th>
                 <td>
-                    <select name="wpcustomize_admin_login_background_repeat">
+                    <select name="wpcustomize_admin_login_background_repeat" class="selectbox">
                         <option<?php if( (isset( $_POST['wpcustomize_admin_login_background_repeat'] ) && $_POST['wpcustomize_admin_login_background_repeat'] == "repeat") || get_option('wpcustomize_admin_login_background_repeat') == "repeat" ) echo ' selected="selected"'; ?>>repeat</option>
                         <option<?php if( (isset( $_POST['wpcustomize_admin_login_background_repeat'] ) && $_POST['wpcustomize_admin_login_background_repeat'] == "repeat-x") || get_option('wpcustomize_admin_login_background_repeat') == "repeat-x" ) echo ' selected="selected"'; ?>>repeat-x</option>
                         <option<?php if( (isset( $_POST['wpcustomize_admin_login_background_repeat'] ) && $_POST['wpcustomize_admin_login_background_repeat'] == "repeat-y") || get_option('wpcustomize_admin_login_background_repeat') == "repeat-y" ) echo ' selected="selected"'; ?>>repeat-y</option>
@@ -160,7 +160,7 @@ function wpcustomize_settings_page() {
             <tr valign="top">
                 <th scope="row"><?php _e("Background Position:", 'wp-customize-menu'); ?> </th>
                 <td>
-                    <select name="wpcustomize_admin_login_background_position">
+                    <select name="wpcustomize_admin_login_background_position" class="selectbox">
                         <option<?php if( (isset( $_POST['wpcustomize_admin_login_background_position'] ) && $_POST['wpcustomize_admin_login_background_position'] == "left top") || get_option('wpcustomize_admin_login_background_attachment') == "left top" ) echo ' selected="selected"'; ?>>left top</option>
                         <option<?php if( (isset( $_POST['wpcustomize_admin_login_background_position'] ) && $_POST['wpcustomize_admin_login_background_position'] == "left center") || get_option('wpcustomize_admin_login_background_attachment') == "left center" ) echo ' selected="selected"'; ?>>left center</option>
                         <option<?php if( (isset( $_POST['wpcustomize_admin_login_background_position'] ) && $_POST['wpcustomize_admin_login_background_position'] == "left bottom") || get_option('wpcustomize_admin_login_background_attachment') == "left bottom" ) echo ' selected="selected"'; ?>>left bottom</option>
@@ -176,7 +176,7 @@ function wpcustomize_settings_page() {
             <tr valign="top">
                 <th scope="row"><?php _e("Background Attachment:", 'wp-customize-menu'); ?> </th>
                 <td>
-                    <select name="wpcustomize_admin_login_background_attachment">
+                    <select name="wpcustomize_admin_login_background_attachment" class="selectbox">
                         <option<?php if( (isset( $_POST['wpcustomize_admin_login_background_attachment'] ) && $_POST['wpcustomize_admin_login_background_attachment'] == "scroll") || get_option('wpcustomize_admin_login_background_attachment') == "scroll" ) echo ' selected="selected"'; ?>>scroll</option>
                         <option<?php if( (isset( $_POST['wpcustomize_admin_login_background_attachment'] ) && $_POST['wpcustomize_admin_login_background_attachment'] == "fixed") || get_option('wpcustomize_admin_login_background_attachment') == "fixed" ) echo ' selected="selected"'; ?>>fixed</option>
                         <option<?php if( (isset( $_POST['wpcustomize_admin_login_background_attachment'] ) && $_POST['wpcustomize_admin_login_background_attachment'] == "local") || get_option('wpcustomize_admin_login_background_attachment') == "local" ) echo ' selected="selected"'; ?>>local</option>
@@ -186,7 +186,7 @@ function wpcustomize_settings_page() {
             <tr valign="top">
                 <th scope="row"><?php _e("Background Size:", 'wp-customize-menu'); ?> </th>
                 <td>
-                    <select name="wpcustomize_admin_login_background_size">
+                    <select name="wpcustomize_admin_login_background_size" class="selectbox">
                         <option<?php if( (isset( $_POST['wpcustomize_admin_login_background_size'] ) && $_POST['wpcustomize_admin_login_background_size'] == "auto") || get_option('wpcustomize_admin_login_background_attachment') == "auto" ) echo ' selected="selected"'; ?>>auto</option>
                         <option<?php if( (isset( $_POST['wpcustomize_admin_login_background_size'] ) && $_POST['wpcustomize_admin_login_background_size'] == "contain") || get_option('wpcustomize_admin_login_background_attachment') == "contain" ) echo ' selected="selected"'; ?>>contain</option>
                         <option<?php if( (isset( $_POST['wpcustomize_admin_login_background_size'] ) && $_POST['wpcustomize_admin_login_background_size'] == "cover") || get_option('wpcustomize_admin_login_background_attachment') == "cover" ) echo ' selected="selected"'; ?>>cover</option>

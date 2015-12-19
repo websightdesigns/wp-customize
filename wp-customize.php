@@ -1,14 +1,14 @@
 <?php
 /**
  * @package WP_Customize
- * @version 1.0.2
+ * @version 1.0.8
  */
 
 /*
 Plugin Name: WP-Customize
 Description: This plugin allows you to customize the WordPress login page and set your own footer for the WordPress Admin.
 Author: WebSight Designs
-Version: 1.0.2
+Version: 1.0.8
 Author URI: http://websightdesigns.com/
 License: GPL2
 */
@@ -34,7 +34,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	die();
 }
 
-if ( version_compare( $GLOBALS['wp_version'], '3.1', '<' ) ) {
+if ( version_compare( $GLOBALS['wp_version'], '3.5', '<' ) ) {
 	return;
 }
 
@@ -44,7 +44,13 @@ if ( version_compare( $GLOBALS['wp_version'], '3.1', '<' ) ) {
  * ************************************************************
  */
 
-require_once('plugin-init.php');
+require_once( plugin_dir_path( __FILE__ ) . 'plugin-init.php' );
+
+/* Runs when plugin is activated */
+register_activation_hook(__FILE__,'wp_customize_install');
+
+/* Runs on plugin deactivation*/
+register_deactivation_hook( __FILE__, 'wp_customize_remove' );
 
 /**
  * ************************************************************
@@ -52,7 +58,7 @@ require_once('plugin-init.php');
  * ************************************************************
  */
 
-require_once('page-template.php');
+require_once( plugin_dir_path( __FILE__ ) . 'page-template.php' );
 
 /**
  * ************************************************************
@@ -67,9 +73,18 @@ function wpcustomize_admin_scripts() {
 	wp_enqueue_script('thickbox');
 	wp_enqueue_style('thickbox');
 	wp_enqueue_script( 'wp-customize-ace-js', plugin_dir_url(__FILE__) . 'js/ace/src-min-noconflict/ace.js', array( 'jquery' ), '1.0', true );
-	wp_enqueue_style( 'wp-customize-spectrum', plugin_dir_url(__FILE__) . 'js/spectrum.css', null, '1.7.0' );
-	wp_enqueue_script( 'wp-customize-spectrum-js', plugin_dir_url(__FILE__) . 'js/spectrum.js', array( 'jquery' ), '1.7.0', true );
-	wp_enqueue_script( 'wp-customize-js', plugin_dir_url(__FILE__) . 'js/script.js', array( 'wp-customize-ace-js', 'wp-customize-spectrum-js', 'jquery', 'media-upload', 'thickbox' ), '1.0.1', true );
+	wp_enqueue_script( 'wp-customize-chosen-js', plugin_dir_url(__FILE__) . 'js/chosen/chosen.jquery.min.js', array( 'jquery' ), '1.4.2', true );
+	wp_enqueue_style( 'wp-customize-spectrum', plugin_dir_url(__FILE__) . 'js/spectrum.min.css', null, '1.0.8' );
+	wp_enqueue_style( 'wp-customize-chosen', plugin_dir_url(__FILE__) . 'js/chosen/chosen.min.css', null, '1.4.2' );
+	wp_enqueue_script( 'wp-customize-spectrum-js', plugin_dir_url(__FILE__) . 'js/spectrum.min.js', array( 'jquery' ), '1.0.8', true );
+	wp_enqueue_script( 'wp-customize-js', plugin_dir_url(__FILE__) . 'js/script.min.js', array(
+		'wp-customize-chosen-js',
+		'wp-customize-ace-js',
+		'wp-customize-spectrum-js',
+		'jquery',
+		'media-upload',
+		'thickbox'
+	), '1.0.8', true );
 }
 add_action( 'admin_enqueue_scripts', 'wpcustomize_admin_scripts' );
 
@@ -87,7 +102,7 @@ add_action( 'admin_enqueue_scripts', 'load_wp_media_files' );
  * ************************************************************
  */
 
-require_once('settings-page.php');
+require_once( plugin_dir_path( __FILE__ ) . 'settings-page.php' );
 
 /**
  * ************************************************************
@@ -99,28 +114,7 @@ require_once('settings-page.php');
  * Add custom CSS to the admin document head
  */
 function wpcustomize_admin_styles() {
-	echo '<style type="text/css">';
-
-	echo 'form[name="wpcustomize_customize"] input[type="text"],
-	form[name="wpcustomize_customize"] textarea {
-		width: 100%;
-		padding: 4px 8px;
-	}
-	@media (min-width: 783px) {
-		form[name="wpcustomize_customize"] input.upload_button {
-			float: right;
-			clear: none;
-			position: relative;
-			right: 0;
-			top: -2.25em;
-			height: 27px;
-		}
-	}
-	form[name="wpcustomize_customize"] input.smallinput[type="text"] {
-		width: 50px;
-	}';
-
-	echo '</style>';
+	wp_enqueue_style( 'wp-customize-admin', plugin_dir_url(__FILE__) . 'css/admin.min.css', null, '1.0.8' );
 }
 add_action('admin_head', 'wpcustomize_admin_styles');
 
@@ -293,6 +287,8 @@ function wpcustomize_login_redirect( $redirect_to, $request, $user ) {
 			} else {
 				return site_url();
 			}
+		} else {
+			return $redirect_to;
 		}
 	} else {
 		return $redirect_to;
@@ -314,7 +310,7 @@ function wpcustomize_login(){
 	) {
 		wp_redirect('/login/');
 		exit();
-	} elseif( ( 'wp-login.php' == $pagenow ) && $_SERVER['REQUEST_METHOD'] == 'POST' && ( !is_user_logged_in() ) ) {
+	// } elseif( ( 'wp-login.php' == $pagenow ) && $_SERVER['REQUEST_METHOD'] == 'POST' && ( !is_user_logged_in() ) ) {
 		// wp_redirect('/login/');
 		// exit();
 	}

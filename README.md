@@ -3,6 +3,8 @@
 by @websightdesigns
 http://www.websightdesigns.com/
 
+@version 1.0.8
+
 This plugin allows you to set up a custom login page and set a custom footer message in the WordPress Admin.
 
 ### Description
@@ -53,6 +55,25 @@ Yes, and there were no known issues that we found with it.
 
 ### Changelog
 
+#### 1.0.8
+* Fixes the login redirect.
+* Use minified versions of css and js files.
+
+#### 1.0.7
+* Fixes custom CSS not parsing on login page template.
+
+#### 1.0.6
+* Fixes path issues with htaccess rules.
+
+#### 1.0.5
+* Fixes path issues with require_once() methods.
+
+#### 1.0.4
+* Just fixing repository commit issues.
+
+#### 1.0.3
+* Just fixing repository commit issues.
+
 #### 1.0.2
 * Add ability to show/hide the Register, Lost Password and Back links.
 * Allow register and lostpassword links through.
@@ -81,7 +102,7 @@ Yes, and there were no known issues that we found with it.
 * Fixes SVN issues.
 
 #### 0.7
-* Added a slightly modified version of Spectrum color picker version 1.7.0 (forked from from https://bgrins.github.io/spectrum/)
+* Added a slightly modified version of Spectrum color picker version 1.0.8 (forked from from https://bgrins.github.io/spectrum/)
 
 #### 0.6
 * Removed Spectrum color picker

@@ -2,9 +2,9 @@
 Contributors: websightdesigns
 Donate link: http://www.websightdesigns.com/
 Tags: admin, customize, login logo, admin footer, custom login, login page, custom page, footer
-Requires at least: 3.1
+Requires at least: 3.5
 Tested up to: 4.3.1
-Stable tag: 1.0.2
+Stable tag: 1.0.8
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -52,6 +52,24 @@ Yes, and there were no known issues that we found with it.
 2. A screenshot of a customized login page
 
 == Changelog ==
+
+= 1.0.8 =
+* Fixes the redirect when auto redirect is unchecked. Uses minified versions of js and css files.
+
+= 1.0.7 =
+* Fixes custom CSS not parsing on login page template.
+
+= 1.0.6 =
+* Fixes path issues with htaccess rules.
+
+= 1.0.5 =
+* Fixes path issues with require_once() methods.
+
+= 1.0.4 =
+* Just fixing repository commit issues.
+
+= 1.0.3 =
+* Just fixing repository commit issues.
 
 = 1.0.2 =
 * Add ability to show/hide the Register, Lost Password and Back links.
