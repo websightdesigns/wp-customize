@@ -19,3 +19,6 @@ form[name="wpcustomize_customize"] textarea {
 form[name="wpcustomize_customize"] input.smallinput[type="text"] {
     width: 50px;
 }
+.chosen-container {
+    width: 150px;
+}

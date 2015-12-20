@@ -13,7 +13,7 @@ if ( version_compare( $GLOBALS['wp_version'], '3.5', '<' ) ) {
 }
 
 if ( is_user_logged_in() ) {
-    header('Location: /wp-admin/');
+    header( 'Location: ' . home_url('/wp-admin/') );
 } else {
     $wpcustomize_login_header_url   = __( 'https://wordpress.org/' );
     $wpcustomize_login_header_title = __( 'Powered by WordPress' );

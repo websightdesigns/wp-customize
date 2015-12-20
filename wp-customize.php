@@ -92,7 +92,7 @@ add_action( 'admin_enqueue_scripts', 'wpcustomize_admin_scripts' );
  * Load media files needed for Uploader
  */
 function load_wp_media_files() {
-  wp_enqueue_media();
+	wp_enqueue_media();
 }
 add_action( 'admin_enqueue_scripts', 'load_wp_media_files' );
 
@@ -117,8 +117,6 @@ function wpcustomize_admin_styles() {
 	wp_enqueue_style( 'wp-customize-admin', plugin_dir_url(__FILE__) . 'css/admin.min.css', null, '1.0.8' );
 }
 add_action('admin_head', 'wpcustomize_admin_styles');
-
-
 
 /**
  * ************************************************************
@@ -308,11 +306,9 @@ function wpcustomize_login(){
 		&& $_GET['action'] != 'lostpassword'
 		&& ( !is_user_logged_in() )
 	) {
-		wp_redirect('/login/');
+		$redirect_url = home_url( '/login/' );
+		wp_redirect( $redirect_url );
 		exit();
-	// } elseif( ( 'wp-login.php' == $pagenow ) && $_SERVER['REQUEST_METHOD'] == 'POST' && ( !is_user_logged_in() ) ) {
-		// wp_redirect('/login/');
-		// exit();
 	}
 }
 add_action('init','wpcustomize_login');
