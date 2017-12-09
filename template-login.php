@@ -1,5 +1,4 @@
 <?php
-
 /*
 Template Name: Log In
 */
@@ -108,11 +107,11 @@ if ( is_user_logged_in() ) {
                 'label_username' => __( 'Username' ),
                 'label_password' => __( 'Password' ),
                 'label_remember' => __( 'Remember Me' ),
-                'label_log_in'   => __( 'Log In' ),
+                'label_log_in'   => __( 'Sign In' ),
                 'value_username' => '',
                 'value_remember' => true
             );
-            wp_login_form();
+            wp_login_form($args);
         ?>
         <p id="nav">
             <a href="<?php echo esc_url( home_url( '/' ) ); ?>wp-login.php?action=register">Register</a> | <a href="<?php echo esc_url( home_url( '/' ) ); ?>wp-login.php?action=lostpassword" title="Password Lost and Found">Lost your password?</a>

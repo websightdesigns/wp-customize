@@ -226,8 +226,11 @@ if( get_option('wpcustomize_remove_login_shake') ) {
 /**
  * Change default error message
  */
-function wpcustomize_custom_error_message() {
-	return ( get_option('wpcustomize_custom_error_message') ? html_entity_decode(get_option('wpcustomize_custom_error_message')) : 'Incorrect login details. Please try again.' );
+function wpcustomize_custom_error_message( $error ) {
+	if ( $GLOBALS['pagenow'] === 'wp-login.php' && empty( $_REQUEST['action'] ) ) {
+		$error = ( get_option('wpcustomize_custom_error_message') ? html_entity_decode(get_option('wpcustomize_custom_error_message')) : 'Incorrect login details. Please try again.' );
+	}
+	return $error;
 }
 add_filter('login_errors', 'wpcustomize_custom_error_message');
 
@@ -262,7 +265,7 @@ if( get_option('wpcustomize_admin_logo_image_url') ) {
 	function wpcustomize_login_logo() {
 		echo '<style type="text/css">
 			.login h1 a {
-				background-image: url(' . html_entity_decode(get_option('wpcustomize_admin_logo_image_url')) . ');
+				background-image: url(' . html_entity_decode(get_option('wpcustomize_admin_logo_image_url')) . ') !important;
 				background-size: ' . html_entity_decode(get_option('wpcustomize_admin_logo_width')) . 'px ' . html_entity_decode(get_option('wpcustomize_admin_logo_height')) . 'px !important;
 				height: ' . html_entity_decode(get_option('wpcustomize_admin_logo_area_height')) . 'px !important;
 				width: ' . html_entity_decode(get_option('wpcustomize_admin_logo_area_width')) . 'px !important;
@@ -329,7 +332,7 @@ add_filter( 'authenticate', 'wpcustomize_verify_username_password', 1, 3);
  * Incorrect login credentials
  */
 function wpcustomize_login_failed( $username ) {
-	//redirect to custom login page and append login error flag
+	// redirect to custom login page and append login error flag
 	$login_page  = home_url( '/login/' );
 	wp_redirect( $login_page . '?login_error' );
 	exit;
