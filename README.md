@@ -3,7 +3,7 @@
 by @websightdesigns
 http://www.websightdesigns.com/
 
-@version 1.0.8
+@version 1.1
 
 This plugin allows you to set up a custom login page and set a custom footer message in the WordPress Admin.
 
@@ -54,6 +54,9 @@ Yes, and there were no known issues that we found with it.
 2. A screenshot of a customized login page
 
 ### Changelog
+
+#### 1.1
+* Fixes registration and lost password pages.
 
 #### 1.0.8
 * Fixes the login redirect.

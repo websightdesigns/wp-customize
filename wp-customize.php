@@ -1,14 +1,14 @@
 <?php
 /**
  * @package WP_Customize
- * @version 1.0.8
+ * @version 1.1
  */
 
 /*
 Plugin Name: WP-Customize
 Description: This plugin allows you to customize the WordPress login page and set your own footer for the WordPress Admin.
 Author: WebSight Designs
-Version: 1.0.8
+Version: 1.1
 Author URI: http://websightdesigns.com/
 License: GPL2
 */

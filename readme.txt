@@ -3,8 +3,8 @@ Contributors: websightdesigns
 Donate link: http://www.websightdesigns.com/
 Tags: admin, customize, login logo, admin footer, custom login, login page, custom page, footer
 Requires at least: 3.5
-Tested up to: 4.3.1
-Stable tag: 1.0.8
+Tested up to: 4.9
+Stable tag: 1.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -30,21 +30,9 @@ This plugin allows you to set up a custom login page, including your logo. It al
 
 == Frequently Asked Questions ==
 
-= Has this plugin been tested on WordPress version 4.0? =
+= Has this plugin been tested on WordPress version 4.9? =
 
-Yes, and there were no known issues that we found with it. It's a pretty simple plugin but if you should come across a problem just let us know.
-
-= Has this plugin been tested on WordPress version 4.1? =
-
-Yes, and there were no known issues that we found with it.
-
-= Has this plugin been tested on WordPress version 4.2? =
-
-Yes, and there were no known issues that we found with it.
-
-= Has this plugin been tested on WordPress version 4.3? =
-
-Yes, and there were no known issues that we found with it.
+Yes, and there were no known issues that we found with it. If you should come across a problem just let us know!
 
 == Screenshots ==
 
@@ -52,6 +40,9 @@ Yes, and there were no known issues that we found with it.
 2. A screenshot of a customized login page
 
 == Changelog ==
+
+= 1.1 =
+* Fixes the registration and lost password pages.
 
 = 1.0.8 =
 * Fixes the redirect when auto redirect is unchecked. Uses minified versions of js and css files.
