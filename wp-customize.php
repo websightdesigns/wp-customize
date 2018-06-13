@@ -300,13 +300,12 @@ add_filter( 'login_redirect', 'wpcustomize_login_redirect', 10, 3 );
 /**
  * Redirect visits to wp-login.php to our custom login page template
  */
-function wpcustomize_login(){
+function wpcustomize_login() {
 	global $pagenow;
 	if (
 		( 'wp-login.php' == $pagenow )
 		&& $_SERVER['REQUEST_METHOD'] != 'POST'
-		&& $_GET['action'] != 'register'
-		&& $_GET['action'] != 'lostpassword'
+		&& !isset($_GET['action'])
 		&& ( !is_user_logged_in() )
 	) {
 		$redirect_url = home_url( '/login/' );

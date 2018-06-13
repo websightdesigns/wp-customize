@@ -76,8 +76,7 @@ function wp_customize_install() {
 <IfModule mod_rewrite.c>
 RewriteEngine on
 RewriteCond %{REQUEST_METHOD} POST
-RewriteCond %{QUERY_STRING} !(?:^)action=register
-RewriteCond %{QUERY_STRING} !(?:^)action=lostpassword
+RewriteCond %{QUERY_STRING} !(.*)action=(.*)
 RewriteCond %{HTTP_REFERER} !^http://(.*)?$servername [NC]
 RewriteCond %{REQUEST_URI} ^(.*)?{$rel_site_path}wp-login\.php(.*)$ [OR]
 RewriteCond %{REQUEST_URI} ^(.*)?{$rel_site_path}wp-admin$
@@ -150,6 +149,8 @@ function insert_apache_rewrite_rules( $rewrite_rules, $marker = 'WP-Customize', 
 
     // Update the .htaccess file
     return (bool) file_put_contents( $htaccess_file , $htaccess_content );
+
+    // add_rewrite_rule('^wp-login.php?action=/([0-9a-zA-Z]+)/?', 'wp-login.php?action=$matches[1]', 'top');
 }
 
 /**
