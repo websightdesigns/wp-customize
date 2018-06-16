@@ -1,9 +1,6 @@
 ## WP Customize
 
-by @websightdesigns
-http://www.websightdesigns.com/
-
-@version 1.1.1
+by [@websightdesigns http://www.websightdesigns.com/]
 
 This plugin allows you to set up a custom login page and set a custom footer message in the WordPress Admin.
 
