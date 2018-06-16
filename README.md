@@ -42,3 +42,6 @@ Or, to pull the latest commits of all your repository's submodules, run:
 
     git submodule foreach git pull origin master
 
+#### WordPress Plugins Repository
+
+You can also install this plugin through the WordPress plugins repository by Navigating to `PLUGINS > ADD NEW` or by visiting https://wordpress.org/plugins/wp-customize/
