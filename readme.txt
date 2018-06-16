@@ -3,8 +3,8 @@ Contributors: websightdesigns
 Donate link: http://www.websightdesigns.com/
 Tags: admin, customize, login logo, admin footer, custom login, login page, custom page, footer
 Requires at least: 3.5
-Tested up to: 4.9
-Stable tag: 1.1
+Tested up to: 4.9.6
+Stable tag: 1.1.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -20,7 +20,8 @@ This plugin allows you to set up a custom login page, including your logo. It al
 * Sets the title (seen when you hover your mouse over the logo) of the logo's link to be your blog's name.
 * Allows you to specify the background color and the text/links color of the Wordpress Admin login page.
 
-`Please be sure and rate this plugin! Thanks!`
+Please take a moment and rate this plugin at:
+https://wordpress.org/support/plugin/wp-customize/reviews/
 
 == Installation ==
 

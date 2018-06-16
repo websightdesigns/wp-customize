@@ -3,7 +3,7 @@
 by @websightdesigns
 http://www.websightdesigns.com/
 
-@version 1.1
+@version 1.1.1
 
 This plugin allows you to set up a custom login page and set a custom footer message in the WordPress Admin.
 
@@ -17,7 +17,8 @@ This plugin allows you to set up a custom login page, including your logo. It al
 * Sets the title (seen when you hover your mouse over the logo) of the logo's link to be your blog's name.
 * Allows you to specify the background color and the text/links color of the Wordpress Admin login page.
 
-`Please be sure and rate this plugin! Thanks!`
+Please take a moment and rate this plugin at:
+https://wordpress.org/support/plugin/wp-customize/reviews/
 
 The WordPress Codex has a great write-up on Styling Your Login:
 https://codex.wordpress.org/Customizing_the_Login_Form#Styling_Your_Login
