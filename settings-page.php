@@ -28,9 +28,9 @@ function wpcustomize_settings_page() {
 	// Read in existing option value from database
 	$opt_val = get_option( $opt_name );
 	// set default checkbox values
-	$wpcustomize_hide_register_link = ( isset( $_POST['wpcustomize_hide_register_link'] ) && $_POST['wpcustomize_hide_register_link'] == "1" ? "1" : "0" );
-	$wpcustomize_hide_forgot_link = ( isset( $_POST['wpcustomize_hide_forgot_link'] ) && $_POST['wpcustomize_hide_forgot_link'] == "1" ? "1" : "0" );
+	$wpcustomize_hide_register_forgot_links = ( isset( $_POST['wpcustomize_hide_register_forgot_links'] ) && $_POST['wpcustomize_hide_register_forgot_links'] == "1" ? "1" : "0" );
 	$wpcustomize_hide_back_link = ( isset( $_POST['wpcustomize_hide_back_link'] ) && $_POST['wpcustomize_hide_back_link'] == "1" ? "1" : "0" );
+	$wpcustomize_show_privacy_policy_link = ( isset( $_POST['wpcustomize_show_privacy_policy_link'] ) && $_POST['wpcustomize_show_privacy_policy_link'] == "1" ? "1" : "0" );
 	$wpcustomize_remember_me_by_default = ( isset( $_POST['wpcustomize_remember_me_by_default'] ) && $_POST['wpcustomize_remember_me_by_default'] == "1" ? "1" : "0" );
 	$wpcustomize_remove_login_shake = ( isset( $_POST['wpcustomize_remove_login_shake'] ) && $_POST['wpcustomize_remove_login_shake'] == "1" ? "1" : "0" );
 	$wpcustomize_admin_login_redirect = ( isset( $_POST['wpcustomize_admin_login_redirect'] ) && $_POST['wpcustomize_admin_login_redirect'] == "1" ? "1" : "0" );
@@ -51,9 +51,9 @@ function wpcustomize_settings_page() {
 		update_option('wpcustomize_admin_linkhovercolor', htmlentities(stripslashes($_POST['wpcustomize_admin_linkhovercolor'])));
 		update_option('wpcustomize_admin_loginstyles', htmlentities(stripslashes($_POST['wpcustomize_admin_loginstyles'])));
 		update_option('wpcustomize_admin_footer_contents', htmlentities(stripslashes($_POST['wpcustomize_admin_footer_contents'])));
-		update_option('wpcustomize_hide_register_link', htmlentities(stripslashes($wpcustomize_hide_register_link)));
-		update_option('wpcustomize_hide_forgot_link', htmlentities(stripslashes($wpcustomize_hide_forgot_link)));
+		update_option('wpcustomize_hide_register_forgot_links', htmlentities(stripslashes($wpcustomize_hide_register_forgot_links)));
 		update_option('wpcustomize_hide_back_link', htmlentities(stripslashes($wpcustomize_hide_back_link)));
+		update_option('wpcustomize_show_privacy_policy_link', htmlentities(stripslashes($wpcustomize_show_privacy_policy_link)));
 		update_option('wpcustomize_remember_me_by_default', htmlentities(stripslashes($wpcustomize_remember_me_by_default)));
 		update_option('wpcustomize_custom_error_message', htmlentities(stripslashes($_POST['wpcustomize_custom_error_message'])));
 		update_option('wpcustomize_remove_login_shake', htmlentities(stripslashes($wpcustomize_remove_login_shake)));
@@ -254,32 +254,15 @@ function wpcustomize_settings_page() {
 				</td>
 			</tr>
 			<tr valign="top">
-				<th scope="row"><?php _e("Hide the Register link?", 'wp-customize-menu'); ?> </th>
+				<th scope="row"><?php _e("Hide the Register and Forgot Password links?", 'wp-customize-menu'); ?> </th>
 				<td>
-				<input type="checkbox" id="wpcustomize_hide_register_link" name="wpcustomize_hide_register_link" value="1"<?php
+				<input type="checkbox" id="wpcustomize_hide_register_forgot_links" name="wpcustomize_hide_register_forgot_links" value="1"<?php
 					if(
 						(
-							isset( $_POST['wpcustomize_hide_register_link'] )
-							&& $_POST['wpcustomize_hide_register_link'] == "1"
+							isset( $_POST['wpcustomize_hide_register_forgot_links'] )
+							&& $_POST['wpcustomize_hide_register_forgot_links'] == "1"
 						) || (
-							html_entity_decode(get_option('wpcustomize_hide_register_link')) == "1"
-						)
-					) {
-						echo ' checked="checked"';
-					}
-				?>>
-				</td>
-			</tr>
-			<tr valign="top">
-				<th scope="row"><?php _e("Hide the Forgot link?", 'wp-customize-menu'); ?> </th>
-				<td>
-				<input type="checkbox" id="wpcustomize_hide_forgot_link" name="wpcustomize_hide_forgot_link" value="1"<?php
-					if(
-						(
-							isset( $_POST['wpcustomize_hide_forgot_link'] )
-							&& $_POST['wpcustomize_hide_forgot_link'] == "1"
-						) || (
-							html_entity_decode(get_option('wpcustomize_hide_forgot_link')) == "1"
+							html_entity_decode(get_option('wpcustomize_hide_register_forgot_links')) == "1"
 						)
 					) {
 						echo ' checked="checked"';
@@ -297,6 +280,23 @@ function wpcustomize_settings_page() {
 							&& $_POST['wpcustomize_hide_back_link'] == "1"
 						) || (
 							html_entity_decode(get_option('wpcustomize_hide_back_link')) == "1"
+						)
+					) {
+						echo ' checked="checked"';
+					}
+				?>>
+				</td>
+			</tr>
+			<tr valign="top">
+				<th scope="row"><?php _e("Hide the Privacy Policy link?", 'wp-customize-menu'); ?> </th>
+				<td>
+				<input type="checkbox" id="wpcustomize_show_privacy_policy_link" name="wpcustomize_show_privacy_policy_link" value="1"<?php
+					if(
+						(
+							isset( $_POST['wpcustomize_show_privacy_policy_link'] )
+							&& $_POST['wpcustomize_show_privacy_policy_link'] == "1"
+						) || (
+							html_entity_decode(get_option('wpcustomize_show_privacy_policy_link')) == "1"
 						)
 					) {
 						echo ' checked="checked"';

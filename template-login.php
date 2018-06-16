@@ -93,27 +93,15 @@ if ( is_user_logged_in() ) {
 				background-size: ' . html_entity_decode(get_option('wpcustomize_admin_login_background_size')) . ';
 			}';
 		}
-		if( get_option('wpcustomize_hide_register_link') ) {
-			echo '
-			p#nav .register-link {
-				display: none;
-			}';
-		}
-		if( get_option('wpcustomize_hide_forgot_link') ) {
-			echo '
-			p#nav .forgot-link {
-				display: none;
-			}';
-		}
-		if( get_option('wpcustomize_hide_register_link') || get_option('wpcustomize_hide_forgot_link') ) {
-			echo '
-			p#nav .link-divider {
-				display: none;
-			}';
-		}
 		if( get_option('wpcustomize_hide_back_link') ) {
 			echo '
 			p#backtoblog {
+				display: none;
+			}';
+		}
+		if( get_option('wpcustomize_show_privacy_policy_link') ) {
+			echo '
+			.privacy-policy-page-link {
 				display: none;
 			}';
 		}
@@ -152,12 +140,22 @@ if ( is_user_logged_in() ) {
 			);
 			wp_login_form($args);
 		?>
-		<p id="nav">
-			<span class="register-link"><a href="<?php echo esc_url( home_url( '/' ) ); ?>wp-login.php?action=register">Register</a></span>
-			<span class="link-divider"> | </span>
-			<span class="forgot-link"><a href="<?php echo esc_url( home_url( '/' ) ); ?>wp-login.php?action=lostpassword" title="Password Lost and Found">Lost your password?</a></span>
-		</p>
+		<?php if( !get_option( 'wpcustomize_hide_register_forgot_links' ) ) { ?>
+			<p id="nav">
+				<?php if( get_option( 'users_can_register' ) ) {
+					?><a href="<?php echo esc_url( home_url( '/' ) ); ?>wp-login.php?action=register">Register</a><span class="link-divider"> | </span><?php
+				} ?>
+				<span class="forgot-link"><a href="<?php echo esc_url( home_url( '/' ) ); ?>wp-login.php?action=lostpassword" title="Password Lost and Found">Lost your password?</a></span>
+			</p>
+		<?php } ?>
 		<p id="backtoblog"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php esc_attr_e( 'Are you lost?' ); ?>"><?php printf( __( '&larr; Back to %s' ), get_bloginfo( 'title', 'display' ) ); ?></a></p>
+		<?php
+			if( !get_option('wpcustomize_show_privacy_policy_link') ) {
+				if( function_exists( 'the_privacy_policy_link' ) ) {
+					the_privacy_policy_link( '<div class="privacy-policy-page-link">', '</div>' );
+				}
+			}
+		?>
 	</div>
 	<div class="clear"></div>
 <?php

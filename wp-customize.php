@@ -200,6 +200,20 @@ function wpcustomize_hide_back_link() {
 add_action('login_head', 'wpcustomize_hide_back_link');
 
 /**
+ * Hide the Privacy Policy link from the login form
+ */
+function wpcustomize_hide_privacy_link() {
+	if( get_option('wpcustomize_show_privacy_policy_link') ) {
+		echo '<style type="text/css">
+			.privacy-policy-page-link {
+				display: none;
+			}
+		</style>';
+	}
+}
+add_action('login_head', 'wpcustomize_hide_privacy_link');
+
+/**
  * Check the "Remember me" checkbox by default
  */
 if( get_option('wpcustomize_remember_me_by_default') ) {
@@ -347,7 +361,7 @@ add_action( 'wp_login_failed', 'wpcustomize_login_failed' );
 /**
  * Set a new footer in the WordPress Admin
  */
-function wpcustomize_remove_footer_admin () {
+function wpcustomize_remove_footer_admin() {
 	$wpcustomize_footer_default_value = 'Thank you for creating with <a href="http://wordpress.org/">WordPress</a>.';
 	if(get_option('wpcustomize_admin_footer_contents') == "") {
 		echo $wpcustomize_footer_default_value;
