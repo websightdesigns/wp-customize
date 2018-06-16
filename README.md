@@ -24,11 +24,15 @@ For support please raise an issue at https://github.com/websightdesigns/wp-custo
 
 ### Installation
 
-#### Manual Installation
+#### WordPress Plugins Repository
 
-1. Upload the `wp-customize` folder to the `/wp-content/plugins/` directory
-2. Activate the plugin through the 'Plugins' menu in WordPress
-3. Fill out the settings under `SETTINGS > CUSTOMIZE` in the WordPress Admin
+1. In your WordPress admin, navigation to `PLUGINS > ADD NEW`
+2. Search for 'wp-customize' and locate this plugin in the list
+3. Click `Install Now`
+4. Click `Activate`
+5. Fill out the settings under `SETTINGS > CUSTOMIZE` in the WordPress Admin
+
+Visit https://wordpress.org/plugins/wp-customize/ for more information.
 
 #### Git Submodule Installation
 
@@ -42,6 +46,8 @@ Or, to pull the latest commits of all your repository's submodules, run:
 
     git submodule foreach git pull origin master
 
-#### WordPress Plugins Repository
+#### Manual Installation
 
-You can also install this plugin through the WordPress plugins repository by Navigating to `PLUGINS > ADD NEW` or by visiting https://wordpress.org/plugins/wp-customize/
+1. Upload the `wp-customize` folder to the `/wp-content/plugins/` directory
+2. Activate the plugin through the 'Plugins' menu in WordPress
+3. Fill out the settings under `SETTINGS > CUSTOMIZE` in the WordPress Admin
