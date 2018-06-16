@@ -38,7 +38,9 @@ To install this plugin as a submodule of your existing WordPress website reposit
 
     git submodule add ssh://user@domain.com/path/to/repository.git
 
-To pull the latest commits of the submodule:
+To pull the latest commits of the submodule change into the directory and run `git pull`.
+
+Or, to pull the latest commits of all your repository's submodules, run:
 
     git submodule foreach git pull origin master
 
