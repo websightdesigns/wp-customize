@@ -61,57 +61,22 @@ Or, to pull the latest commits of all your repository's submodules, run:
         border-radius: 4px;
     }
 
-    .login form {
-        background: #202020;
-    }
-
     .login #login_error {
-        border-left-color: #9d3848;
-        color: #fff;
-        background: #c15251;
+        border-left: 0;
+        background: #fff;
         box-shadow: 0 1px 1px 0 rgba(0,0,0,.1);
     }
 
-    body.login > #login #nav > a {
-        color: #999 !important;
-    }
-
-    body.login > #login #nav > a:hover {
-        color: #fff !important;
-    }
-
     .wp-core-ui .button-primary {
-        background-color: #1da1d7;
+        background: #999;
+        border-color: #777;
+        box-shadow: none;
         text-shadow: none;
-        transition: all .2s ease-in-out;
-        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4), 0 1px 0 rgba(0, 0, 0, 0.15);
-        padding: 1em 3em !important;
-        font-weight: normal !important;
-        border: 1px solid transparent;
-        line-height: 1 !important;
-        height: auto !important;
     }
     .wp-core-ui .button-primary:hover,
-    .wp-core-ui .button-primary:focus,
-    .wp-core-ui .button-primary:active {
-        background-color: #1da1d7;
-        border-color: #1da1d7;
-        opacity: 0.8;
-        box-shadow: none;
-    }
-
-    #reg_passmail {
-        color: #999;
-    }
-
-    #login .message {
-        border-left: 4px solid #1da1d7;
-        background-color: #5c5c5c;
-        color: #fff;
-    }
-
-    #login h1 a:focus,
-    #login h1 a:active {
-        outline: 0;
+    .wp-core-ui .button-primary:active,
+    .wp-core-ui .button-primary:focus {
+        background: #888;
+        border-color: #777;
         box-shadow: none;
     }
